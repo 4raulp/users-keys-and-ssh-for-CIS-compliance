@@ -2,7 +2,7 @@
 - name: Create multiple local users
   hosts: webservers
   vars_files:
-    - vars/users_vars.yml
+    - users_vars.yml
   tasks:
     - name: Add webadmin group
       ansible.builtin.group:
