@@ -16,12 +16,6 @@
         groups: "{{ item['groups'] }}"
       loop: "{{ users }}"
 
-    - name: Add authorized keys
-      ansible.posix.authorized_key:
-        user: "{{ item['username'] }}"
-        key: "{{ lookup('file', 'files/' + item['username'] + '.key.pub') }}"
-      loop: "{{ users }}"
-
     - name: Modify sudo config to allow webadmin users sudo without a password
       ansible.builtin.lineinfile:
         path: /etc/sudoers.d/webadmin
