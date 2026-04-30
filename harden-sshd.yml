@@ -1,6 +1,6 @@
 ---
 - name: Harden SSH server with loop
-  hosts: "{{ rhel_inventory_group | default(all) }}"
+  hosts: "{{ rhel_inventory_group | default('all') }}"
   become: yes
   force_handlers: true
   vars:
