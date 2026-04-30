@@ -1,6 +1,6 @@
 ---
 - name: Connection Test
-  hosts: all
+  hosts: vms-aap-day2-rhel9-vm1
   gather_facts: no
   
   tasks:
