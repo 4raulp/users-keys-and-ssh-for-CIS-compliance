@@ -74,10 +74,10 @@
     
     - name: Allow sshd to listen on tcp port 
       ansible.builtin.command:
-        cmd: "semanage port -a -t ssh_port_t -p tcp {{ port }}"
+        cmd: "semanage port -a -t ssh_port_t -p tcp {{ ssh_port }}"
       ignore_errors: true
       
-    - name: Permit traffic in public zone on port {{ port }}/tcp
+    - name: Permit traffic in public zone on port {{ ssh_port }}/tcp
       ansible.posix.firewalld:
         port: "{{ ssh_port }}/tcp"
         permanent: true
