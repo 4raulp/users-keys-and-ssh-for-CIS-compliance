@@ -77,6 +77,11 @@
         cmd: "semanage port -a -t ssh_port_t -p tcp {{ ssh_port }}"
       ignore_errors: true
       
+    - name: Ensure python3-firewall is installed
+      ansible.builtin.dnf:
+        name: python3-firewall
+        state: present
+        
     - name: Permit traffic in public zone on port {{ ssh_port }}/tcp
       ansible.posix.firewalld:
         port: "{{ ssh_port }}/tcp"
