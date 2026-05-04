@@ -1,6 +1,6 @@
 ---
 - name: Harden SSH server with loop
-  hosts: all
+  hosts: vms-aap-day2-rhel9-vm1
   become: yes
   force_handlers: true
   vars:
