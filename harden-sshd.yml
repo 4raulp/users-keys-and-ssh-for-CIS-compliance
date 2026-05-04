@@ -86,7 +86,7 @@
       ansible.builtin.dnf:
         name: 
           - firewalld
-          - python3-firewalld
+       #   - python3-firewalld
         state: latest
 
     - name: Ensure firewalld is started and enabled
