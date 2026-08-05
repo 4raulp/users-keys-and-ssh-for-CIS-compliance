@@ -71,6 +71,18 @@
       loop:           
           - /etc/issue
           - /etc/issue.net
+
+# 1. Add this new task to install semanage
+    - name: Ensure semanage is installed
+      ansible.builtin.dnf:
+        name: policycoreutils-python-utils
+        state: present
+
+    # 2. Your existing task will now work
+    - name: Allow sshd to listen on tcp port 
+      ansible.builtin.command:
+        cmd: "semanage port -a -t ssh_port_t -p tcp {{ ssh_port }}"
+      ignore_errors: true
     
     - name: Allow sshd to listen on tcp port 
       ansible.builtin.command:
